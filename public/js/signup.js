@@ -24,6 +24,6 @@ export const register=async function  (name,email,password,passwordConfirm){
 }
 catch(err)
 {
-   console.log(err);
+   showAlert("error",err.response.data.message);
 }
 }

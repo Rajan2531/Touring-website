@@ -22,10 +22,7 @@ if(registerForm)
 {
     registerForm.addEventListener('submit',e=>{
         e.preventDefault();
-        console.log(document.getElementById('name').value)
-        console.log(document.getElementById('email').value)
-        console.log(document.getElementById('password').value)
-        console.log(document.getElementById('passwordConfirm').value)
+        
       
         const name=document.getElementById('name').value;
        const email=document.getElementById('email').value;
