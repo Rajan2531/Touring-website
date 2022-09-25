@@ -15,7 +15,7 @@ const signTokenCreator=function(id){
 
 }
 exports.signup=catchAsync.catchAsync(async(req,res,next)=>{
-    console.log(req.body);
+    //console.log(req.body);
    const newUser= await User.create({
     name:req.body.name,
     email:req.body.email,
