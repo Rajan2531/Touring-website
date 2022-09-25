@@ -3,7 +3,7 @@ const router=express.Router();
 const bookingController=require("./../controllers/bookingController.js");
 const viewsController=require("./../controllers/viewsController.js")
 const authController=require("./../controllers/authController.js");
-
+router.get('/signup',viewsController.getSignupForm);
 router.get('/me',authController.protect,viewsController.getAccount);
 router.get('/',authController.isLoggedIn,bookingController.createBookingAfterCheckout,viewsController.getOverview)
 router.get('/overview',(req,res)=>{

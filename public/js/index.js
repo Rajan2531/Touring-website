@@ -3,7 +3,9 @@ import { bookTour } from './stripe.js'
 import {logout} from './login.js'
 import  {login} from './login.js'
 import { updateData, updatePassword } from './updateData.js'
+import { register } from './signup.js'
 const loginForm=document.querySelector(".form--login")
+const registerForm=document.querySelector(".form--signup")
 const saveForm=document.querySelector(".form-user-data");
 const changePasswordForm=document.querySelector(".form-user-settings");
 const bookingTour=document.getElementById('book-tour');
@@ -15,6 +17,23 @@ if(loginForm){
     
     login(email,password);
 })}
+
+if(registerForm)
+{
+    registerForm.addEventListener('submit',e=>{
+        e.preventDefault();
+        console.log(document.getElementById('name').value)
+        console.log(document.getElementById('email').value)
+        console.log(document.getElementById('password').value)
+        console.log(document.getElementById('passwordConfirm').value)
+      
+        const name=document.getElementById('name').value;
+       const email=document.getElementById('email').value;
+        const password=document.getElementById('password').value;
+        const passwordConfirm=document.getElementById('passwordConfirm').value;
+        register(name,email,password,passwordConfirm)
+    })
+}
 
 const logoutButton=document.querySelector(".nav__el--logout");
 if(logoutButton)

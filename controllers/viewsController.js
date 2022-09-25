@@ -4,6 +4,10 @@ const catchAsync=require("./../utils/catchAsync.js")
 
 
 
+exports.getSignupForm=catchAsync.catchAsync(async(req,res,next)=>{
+    res.status(200).render('signup',{title:"Sign up to get registered!"})
+})
+
 exports.getOverview=catchAsync.catchAsync(async (req,res,next)=>{
     // 1) get tour data from collection
     const tours=await Tour.find();
