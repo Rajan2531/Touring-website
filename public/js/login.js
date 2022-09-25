@@ -7,7 +7,7 @@ export const login=async (email,password)=>{
    try{
     const res=await axios({
     method:"post",
-    url:"http://127.0.0.1:3000/api/v1/users/login",
+    url:"/api/v1/users/login",
     
     data:{
         email:email,
@@ -32,7 +32,10 @@ export const logout=async()=>{
     try{
         const res=await axios({
             method:"GET",
-            url:"http://127.0.0.1:3000/api/v1/users/logout",
+            
+            ////url:"http://127.0.0.1:3000/api/v1/users/logout",
+            // for working when its deployed we only need to keep these as api and these file are hosted on same url
+            url:"/api/v1/users/logout",
 
         })
         
