@@ -1,0 +1,14 @@
+header.header 
+    nav.nav.nav--tours 
+        a.nav__el(href="/") Tourings
+    div.header__logo
+        img(src="/img/logo-destination.png" alt="touring logo")
+    nav.nav.nav--user 
+        if(user)
+            a.nav__el(href="/me")
+                img.nav__user-img(src=`/img/users/${user.photo}` alt="User photo")
+                span=user.name 
+            a.nav__el.nav__el--logout(href="#") Logout 
+        else        
+            a.nav__el(href="/login") Log In
+            a.nav__el.nav__el--cta(href="/signUp") Sign up 
