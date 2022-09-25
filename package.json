@@ -36,5 +36,8 @@
     "stripe": "^10.11.0",
     "validate": "^5.2.0",
     "validator": "^13.7.0"
+  },
+  "engines":{
+    "node":">=10.0.0"
   }
 }
