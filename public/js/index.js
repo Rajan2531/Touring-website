@@ -54,7 +54,7 @@ if(bookingTour)
     bookingTour.addEventListener('click',e=>{
         e.target.textContent='Processing';
         const tourId=e.target.dataset.tourId;
-        console.log(tourId);
+        //console.log(tourId);
         bookTour(tourId);
     })
 }

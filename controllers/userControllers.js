@@ -37,7 +37,7 @@ const upload=multer({
 
 exports.uploadUserPhoto=upload.single('photo');
 exports.resizeUploadPhoto=(req,res,next)=>{
-    console.log(req);
+    //console.log(req);
     if(!req.file)
     return next();
     req.file.fileName=`user-${req.user.id}-${Date.now()}.jpeg`

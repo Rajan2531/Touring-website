@@ -47,7 +47,7 @@ exports.getAllTours=catchAsync.catchAsync(async (req,res,next)=>{
        
         
         const alltour=await features.query.populate('guides');
-        console.log("rajan",alltour);
+        //console.log("rajan",alltour);
         res.status(200).json({
         status:"success",
         result:alltour.length,
@@ -96,7 +96,7 @@ exports.topFiveCheapAlias=(req,res,next)=>{
     req.query.limit='5';
     req.query.sort="price,-rating";
     req.query.fields="price,rating,durations";
-    console.log(req.query);
+    //console.log(req.query);
     next();
 }
 exports.getTourStats=async(req,res)=>{
@@ -125,7 +125,7 @@ exports.getTourStats=async(req,res)=>{
 exports.getMonthlyPlan=async(req,res)=>
 {
     const year=req.params.year*1;
-    console.log(year);
+    //console.log(year);
     try{
         const monthlyplan=await Tour.aggregate([
             {

@@ -8,7 +8,7 @@ export const updateData=async function(data){
         url:"http://127.0.0.1:3000/api/v1/users/updateMe",
        data
     })
-  console.log(res);
+  //console.log(res);
     if(res)
     {
         showAlert("success","Data updated successfully");
@@ -47,7 +47,7 @@ export const updatePassword=async function(currentPassword,password,passwordConf
 }
 catch(err)
 {
-    console.log(err);
+    //console.log(err);
     showAlert("error","Email is already taken");
 }
 

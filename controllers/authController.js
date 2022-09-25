@@ -73,7 +73,7 @@ exports.login=catchAsync.catchAsync(async(req,res,next)=>{
 exports.protect=catchAsync.catchAsync(async(req,res,next)=>{
     // checking if authorization token exists in request header
     let token;
-    console.log(req.headers.authorization);
+    //console.log(req.headers.authorization);
     if(req.headers.authorization&&req.headers.authorization.startsWith('Bearer'))
     {
         token=req.headers.authorization.split(' ')[1];
@@ -82,7 +82,7 @@ exports.protect=catchAsync.catchAsync(async(req,res,next)=>{
     {
         token=req.cookies.jwt;
     }
-    console.log(token);
+    //console.log(token);
     if(!token)
     {
         return next(new appError("Your are not logged in. Please log in to continue",404));
@@ -114,7 +114,7 @@ exports.isLoggedIn=catchAsync.catchAsync(async(req,res,next)=>{
         const decoded=await util.promisify(jwt.verify)(req.cookies.jwt,process.env.JWT_SECRET);
 
         const freshuser=await User.findById({_id:decoded.id});
-        console.log(freshuser);
+        //console.log(freshuser);
     // checking if user exists
         if(!(freshuser))
         {
@@ -161,7 +161,7 @@ exports.forgetPassword=async(req,res,next)=>{
     // we just updated passwordResetToken attribute if database so it is must to save since we want to match with user reset request
     await user.save();
     const resetURL=`${req.protocol}://${req.get('host')}/api/v1/users/resetPassword/${resetToken}`;
-    console.log(resetToken)
+    //console.log(resetToken)
     try{
     // await emailsend.sendEmail({
     //     email:user.email,
@@ -195,13 +195,13 @@ exports.resetPassword=catchAsync.catchAsync(async (req,res,next)=>{
         {
             return next(new appError("Sorry, try again",404));
         }
-       console.log(user);
+       //console.log(user);
        // user exists and time is not expired so we will change the password
         user.password=req.body.password;
         user.passwordConfirm=req.body.password;
         user.passwordResetToken=undefined;
         user.passwordResetTokenExpire=undefined;
-        console.log(user.passwordConfirm);
+        //console.log(user.passwordConfirm);
         await user.save();
        
         const loginToken=signTokenCreator({_id:user._id});

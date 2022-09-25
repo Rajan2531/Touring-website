@@ -3,7 +3,7 @@ const Review=require("./../Models/reviewModel.js");
 const factory=require("./handlerFactory.js")
 
 exports.createReview=catchAsync.catchAsync(async(req,res,next)=>{
-    console.log(req.params.tourId);
+    //console.log(req.params.tourId);
     if(!req.body.tourId)
     req.body.tourId=req.params.tourId;
     if(!req.body.userId)

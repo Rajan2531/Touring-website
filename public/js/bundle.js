@@ -11123,27 +11123,25 @@ var bookTour = /*#__PURE__*/function () {
 
           case 3:
             res = _context.sent;
-            console.log(res.data.url);
-            _context.next = 7;
+            _context.next = 6;
             return stripe.redirectToCheckout({
               sessionId: res.data.id
             });
 
-          case 7:
-            _context.next = 12;
+          case 6:
+            _context.next = 10;
             break;
 
-          case 9:
-            _context.prev = 9;
+          case 8:
+            _context.prev = 8;
             _context.t0 = _context["catch"](0);
-            console.log(_context.t0);
 
-          case 12:
+          case 10:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 9]]);
+    }, _callee, null, [[0, 8]]);
   }));
 
   return function bookTour(_x) {
@@ -11265,16 +11263,16 @@ var logout = /*#__PURE__*/function () {
               location.reload(true);
             }, 1000);
             (0, _alert.showAlert)('success', "your logged out successfully");
-            _context2.next = 13;
+            _context2.next = 12;
             break;
 
           case 9:
             _context2.prev = 9;
             _context2.t0 = _context2["catch"](0);
-            console.log(_context2.t0.response);
+            //console.log(err.response);
             (0, _alert.showAlert)("error", "Failed to log out");
 
-          case 13:
+          case 12:
           case "end":
             return _context2.stop();
         }
@@ -11327,8 +11325,8 @@ var updateData = /*#__PURE__*/function () {
 
           case 3:
             res = _context.sent;
-            console.log(res);
 
+            //console.log(res);
             if (res) {
               (0, _alert.showAlert)("success", "Data updated successfully");
               setTimeout(function () {
@@ -11336,20 +11334,20 @@ var updateData = /*#__PURE__*/function () {
               }, 1000);
             }
 
-            _context.next = 11;
+            _context.next = 10;
             break;
 
-          case 8:
-            _context.prev = 8;
+          case 7:
+            _context.prev = 7;
             _context.t0 = _context["catch"](0);
             if (_context.t0.response.data.message === 'Duplicate data') (0, _alert.showAlert)("error", "Email is already taken");
 
-          case 11:
+          case 10:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee, null, [[0, 8]]);
+    }, _callee, null, [[0, 7]]);
   }));
 
   return function updateData(_x) {
@@ -11389,16 +11387,16 @@ var updatePassword = /*#__PURE__*/function () {
               }, 1000);
             }
 
-            _context2.next = 11;
+            _context2.next = 10;
             break;
 
           case 7:
             _context2.prev = 7;
             _context2.t0 = _context2["catch"](0);
-            console.log(_context2.t0);
+            //console.log(err);
             (0, _alert.showAlert)("error", "Email is already taken");
 
-          case 11:
+          case 10:
           case "end":
             return _context2.stop();
         }
@@ -11729,8 +11727,8 @@ if (changePasswordForm) {
 if (bookingTour) {
   bookingTour.addEventListener('click', function (e) {
     e.target.textContent = 'Processing';
-    var tourId = e.target.dataset.tourId;
-    console.log(tourId);
+    var tourId = e.target.dataset.tourId; //console.log(tourId);
+
     (0, _stripe.bookTour)(tourId);
   });
 }
@@ -11762,7 +11760,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51982" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60069" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

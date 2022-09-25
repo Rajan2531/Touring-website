@@ -6,9 +6,9 @@ exports.createStripeSession=catchAsync.catchAsync(async(req,res,next)=>{
 
     //1) get all tour details 
      const tourDetails=await Tour.findById(req.params.tourId);
-     console.log(tourDetails.price);
+    // console.log(tourDetails.price);
      //2) create a stripe session
-     console.log(tourDetails);
+    // console.log(tourDetails);
      const session=await stripe.checkout.sessions.create({
         payment_method_types:['card'],
         success_url:`${req.protocol}://${req.get('host')}?tourId=${req.params.tourId}&userId=${req.user.id}&price=${tourDetails.price}`,
